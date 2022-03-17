@@ -1,3 +1,33 @@
+Requirements:
+
+    [x] Connect to movie database api to grab list of movies 
+
+    [x] Display a list of movies 
+
+    [] Search Functionality 
+
+Task:
+
+[] Create some network request to fetch movies 
+
+    [x] Create an account to get TMDB api keys 
+
+    [x] Create fetch request that do stuff
+
+    [x] Create a generic fetch request that automatically attaches keys
+
+    [] Create some secrets that wont be uploaded to github but still allow connections
+
+[] Create Some Components 
+
+    [] Navbar 
+
+    [] Searchbar 
+
+    [x] Render a list of movies 
+
+    [x] Renders a single movie 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
