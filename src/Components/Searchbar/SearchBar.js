@@ -1,8 +1,10 @@
-import {useEffect, useState } from 'react'
+import { useState } from 'react'
 import { fetchMoviesFromDatabase } from '../../NetworkConnections'
+import MovieList from '../MovieList/MovieList'
 import SingleMovie from '../SingleMovie /SingleMovie'
 
-export default function SearchBar (){
+//function taking in attributges as a parameter 
+export default function SearchBar (props){
     const [movies, setMovies] = useState([])
     const [searchName, setSearchName] = useState('')
 
@@ -18,10 +20,10 @@ function handleChange(event){
 console.log(searchName)
 return (
     <div>
-       <h1>Explore Movies By Search</h1> 
+       <h1>Explore Movies Optoins:</h1> 
        <input value ={searchName} onChange={handleChange}></input>
        <input onClick= {searchMovies} type='submit'/>
-       <h2>{props.title}</h2>
+        <MovieList title={props.title} movies={movies} genres = {props.genres}/>
        <div className = 'movie-list'>
             {movies.map(movie => <SingleMovie key={movie.id}movie={movie}/>)}
        </div>

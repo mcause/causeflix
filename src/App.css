@@ -22,11 +22,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 10px;
+  
 }
 
 .movie-card{
   width: 300px;
-  padding: 18px;
+  padding: 30px;
+  box-shadow:0 0 20px #070907;
 }
 .movie-card img{
   width: 100%;
