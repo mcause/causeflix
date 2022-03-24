@@ -3,7 +3,7 @@ import { fetchMoviesFromDatabase } from '../../NetworkConnections'
 import MovieList from '../MovieList/MovieList'
 import SingleMovie from '../SingleMovie /SingleMovie'
 
-//function taking in attributges as a parameter 
+//function taking in attributes as a parameter 
 export default function SearchBar (props){
     const [movies, setMovies] = useState([])
     const [searchName, setSearchName] = useState('')
@@ -12,11 +12,12 @@ export default function SearchBar (props){
         fetchMoviesFromDatabase(`search/movie`, `&query=${searchName}`)
             .then(res => setMovies(res.results))
     }
-
+// Creating a function that handles the change with its perameter as the event
 function handleChange(event){
-    setSearchName(event.taget.value)
+    console.log(event)
+    //triggering a specific event and returning the value
+        setSearchName(event.target.value)
 }
-
 console.log(searchName)
 return (
     <div>
