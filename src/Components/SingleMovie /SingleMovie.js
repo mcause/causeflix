@@ -3,23 +3,19 @@ import { fetchMoviesFromDatabase, GenreContext} from "../../NetworkConnections";
 
 
 export default function SingleMovie(props){
-    // useState - to create state
+    // useState - to create state with hooks 
     const[movie, setMovie] = useState(props.movie);
     const [searchName, setSearchName] = useState('')
     const genres = useContext(GenreContext)[movie?.original_title ? 1 :0]
     // useEffect - only fire code when the component is loaded for the first time 
     useEffect(()=>{
-        
-        // fetchMoviesFromDatabase('genre/movie/list')
-        //     .then(res => setGenres(res.genres))
         if(movie)return;
-        //do some fetching 
+        //fetching some movie ids
         fetchMoviesFromDatabase(`movie/${props?.id}`)
             .then(res => setMovie(res));
         
     }, [])
 
-    // const genres = movie?.original_title ? props.movieGenres : props.tvGenres 
 
     return <div className = 'movie-card'>
         <h4>{movie?.original_title || movie?.original_name }</h4>
@@ -28,8 +24,8 @@ export default function SingleMovie(props){
         src = {`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}/>}
         <p>{movie?.overview}</p>
         {/* Mapping over genre of movies to turn the ids into names */}
-        <p>{movie?.genre_ids?.map(
-            (genre_id,i) => <p>{genres.find(genre=> genre_id === genre.id)?.name}{i !== movie.genre_ids.length -1 && ','}</p>)}</p>
+        <div>{movie?.genre_ids?.map(
+            (genre_id,i) => <p key={i}>{genres.find(genre=> genre_id === genre.id)?.name}{i !== movie.genre_ids.length -1 && ','}</p>)}</div>
             {console.log(movie?.genre_ids)}
     </div>
 }

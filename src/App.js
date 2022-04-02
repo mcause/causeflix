@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import SingleMovie from './Components/SingleMovie /SingleMovie';
 import MovieList from './Components/MovieList/MovieList';
@@ -7,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBar from './Components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react/cjs/react.development';
 import { fetchMoviesFromDatabase,GenreContext } from './NetworkConnections';
+import React from 'react'
 
 function App() {
   const [movieGenres, setMovieGenres] = useState([])
@@ -16,7 +16,7 @@ function App() {
     //fetch the entire list of genres 
     fetchMoviesFromDatabase('genre/movie/list')
       .then(res => setMovieGenres(res.genres))
-
+    //fetch the entire list of tv shows 
     fetchMoviesFromDatabase('genre/tv/list')
       .then(res => setTvGenres(res.genres))
   }, []);
@@ -24,10 +24,12 @@ function App() {
   return (
     <GenreContext.Provider value={[tvGenres, movieGenres]}>
       <div className="main-container">
+        <h1>Cause FLix</h1> 
         <Navbar />
         <SearchBar/>
-        <SingleMovie id='24'/>
-        <MovieList list='trending/movies/day' title='Trending Movies Today:' movieGenres={movieGenres} tvGenres={tvGenres} />
+        <p>Top picks by users:</p>
+        <SingleMovie id='96'/>
+        <MovieList list='trending/movies/day' title='Trending Movies/Shows Today:' movieGenres={movieGenres} tvGenres={tvGenres} />
       </div>
     </GenreContext.Provider>
   );

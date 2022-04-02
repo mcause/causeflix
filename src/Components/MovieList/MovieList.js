@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import { fetchMoviesFromDatabase, API_KEY } from "../../NetworkConnections"
 import SingleMovie from "../SingleMovie /SingleMovie";
 
+// universal function for MovieList invoking the props as the parameter 
 export default function MovieList(props){
+    //setting movies and setMovies to useState invoking props.movie 
     const [movies, setMovies] = useState(props.movies);
     useEffect(()=> {
         if(movies) return

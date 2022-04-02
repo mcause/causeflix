@@ -13,7 +13,7 @@ export default function SearchBar (props){
             .then(res => setMovies(res.results))
     }
 // Creating a function that handles the change with its perameter as the event
-function handleChange(event){
+function movieChange(event){
     console.log(event)
     //triggering a specific event and returning the value
         setSearchName(event.target.value)
@@ -21,11 +21,13 @@ function handleChange(event){
 console.log(searchName)
 return (
     <div>
-       <h1>Explore Movies Optoins:</h1> 
-       <input value ={searchName} onChange={handleChange}></input>
+       <h3>Explore Movies Options:</h3> 
+       <input value ={searchName} onChange={movieChange}></input>
        <input onClick= {searchMovies} type='submit'/>
+
         <MovieList title={props.title} movies={movies} genres = {props.genres}/>
        <div className = 'movie-list'>
+           {/* mapping over movies, creating a new arry movie and using SingleMovie as a function setting the key equal to the movie id and movie set to movie */}
             {movies.map(movie => <SingleMovie key={movie.id}movie={movie}/>)}
        </div>
     </div>

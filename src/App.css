@@ -7,8 +7,7 @@
   background-image: linear-gradient(165deg, #FFE53B 0%, #FF2525 37%, #2f2121 100%);
   font:small-caps;
   font-family: 'Bungee Inline', cursive;
-   
-}
+}x
 
 
 .movie-list-container{
@@ -16,6 +15,7 @@
   flex-direction: column column column column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .movie-list{
@@ -30,8 +30,20 @@
   width: 300px;
   padding: 30px;
   box-shadow:0 0 20px #070907;
+  border-radius: 20px; 
+}
+
+.movie-card p{
+color:white;
+text-shadow: 1px 1px 1px black;
+}
+
+.movie-card h4{
+  color: #2f2121;
+  text-shadow: 1px 1px 1px whitesmoke;
 }
 .movie-card img{
   width: 100%;
 }
+
 
