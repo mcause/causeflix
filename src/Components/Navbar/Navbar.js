@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -8,13 +9,13 @@ export default function navbar(){
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="home-button">
-          <a className="nav-link active" aria-current="page" href="#">Home</a>
+          <a className="nav-link active" aria-current="page">Home</a>
         </li>
         <li className="tv-show-button">
-          <a className="nav-link" href="#">TV Shows </a>
+          <a className="nav-link">TV Shows </a>
         </li>
         <li className="movie-button">
-          <a className="nav-link" href="#">Movies</a>
+          <a className="nav-link">Movies</a>
         </li>
         <li className="fandango-button ">
             <button>
