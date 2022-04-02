@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchMoviesFromDatabase} from "../../NetworkConnections";
 
-export default function TvShow(){
+export default function TvShow(props){
     // useState - to create state
     const[movie, setMovie] = useState(props.movie);
     // useEffect - only fore code when the component is loaded for the first time 
@@ -10,6 +10,7 @@ export default function TvShow(){
         //do some fetching 
         fetchMoviesFromDatabase(`movie/${props?.id}`)
             .then(res => setMovie(res));
+    // eslint-disable-next-line    
     }, [])
 
     return <div className = 'movie-card'>

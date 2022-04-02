@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchMoviesFromDatabase, API_KEY } from "../../NetworkConnections"
+import { fetchMoviesFromDatabase} from "../../NetworkConnections"
 import SingleMovie from "../SingleMovie /SingleMovie";
 
 // universal function for MovieList invoking the props as the parameter 
@@ -10,6 +10,7 @@ export default function MovieList(props){
         if(movies) return
         fetchMoviesFromDatabase(props.list)
             .then(res => setMovies(res.results));
+    // eslint-disable-next-line    
     }, [])
 
     useEffect(() =>{

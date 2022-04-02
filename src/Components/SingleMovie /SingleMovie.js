@@ -5,7 +5,7 @@ import { fetchMoviesFromDatabase, GenreContext} from "../../NetworkConnections";
 export default function SingleMovie(props){
     // useState - to create state with hooks 
     const[movie, setMovie] = useState(props.movie);
-    const [searchName, setSearchName] = useState('')
+    // const [searchName, setSearchName] = useState('')
     const genres = useContext(GenreContext)[movie?.original_title ? 1 :0]
     // useEffect - only fire code when the component is loaded for the first time 
     useEffect(()=>{
@@ -13,7 +13,7 @@ export default function SingleMovie(props){
         //fetching some movie ids
         fetchMoviesFromDatabase(`movie/${props?.id}`)
             .then(res => setMovie(res));
-        
+    // eslint-disable-next-line    
     }, [])
 
 
